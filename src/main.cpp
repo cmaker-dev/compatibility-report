@@ -159,7 +159,7 @@ int main(){
   using nlohmann::json;
   std::vector<std::future<reportItem>> results = std::vector<std::future<reportItem>>();
   int thread_count = 0;
-  int max_threads = 150;
+  int max_threads = 250;
   std::ifstream index_file;
   json report = json::array();
   try{
@@ -206,7 +206,7 @@ int main(){
         reportJson["status_code"] = item.status_code;
         report.push_back(reportJson);
         std::cout << "Package: " << item.name << " failed with error: " << item.error << std::endl;
-        std::cout << report.size() << " packages failed " << (static_cast<float>(report.size()) / static_cast<float>(index)) * 100.0f << "%" << std::endl;
+        std::cout << report.size() << " packages failed " << (static_cast<float>(report.size()) / static_cast<float>(index)) * 100.0f << "% out of "<< index << "Packages checked" << std::endl;
       }
       thread_count = 0;
     }

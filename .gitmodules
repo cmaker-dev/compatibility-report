@@ -1,3 +1,4 @@
 [submodule "cmaker"]
 	path = cmaker
-	url = git@github.com:cmaker-dev/cmaker.git
+  url = https://github.com/cmaker-dev/cmaker.git
+  branch = dev
