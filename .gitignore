@@ -1,0 +1,32 @@
+
+# CMake
+CMakeLists.txt.user
+CMakeFiles/
+CMakeCache.txt
+Makefile
+_deps/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+# Build dir
+build/*
+# VS Code
+.vscode/
+# CLion
+.idea/
+# XCode
+*.xcodeproj
+*.xcworkspace
+# Visual Studio
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.vcproj
+*.vcproj.*
+index.json
+# vim/nvim
+*.swp
+compile_commands.json
+    

@@ -1,0 +1,38 @@
+{
+  "authors": [],
+  "build_dir": "build",
+  "cmake_version": "3.10",
+  "compiler": "g++",
+  "dependencies": [
+    {
+      "git": "https://github.com/nlohmann/json",
+      "name": "nlohmann_json",
+      "target_link": "nlohmann_json",
+      "version": "v3.9.1"
+    }
+  ],
+  "flags": [],
+  "include_dir": "include",
+  "lang": "cpp",
+  "lang_version": "20",
+  "modes": [
+    {
+      "flags": "-O2 ",
+      "name": "Release"
+    },
+    {
+      "flags": "-g",
+      "name": "Debug"
+    },
+    {
+      "flags": "-g",
+      "name": "Test"
+    }
+  ],
+  "project_description": "",
+  "project_name": "cmaker-compat-test",
+  "project_path": "/home/deastl/dockershit",
+  "project_type": "executable",
+  "project_version": "0.0.1",
+  "src_dir": "src"
+}
