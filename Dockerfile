@@ -26,4 +26,4 @@ RUN wget https://github.com/cmaker-dev/index/releases/latest/download/index.json
 
 
 # build and run compat report
-RUN cmaker run
+ENTRYPOINT cmaker run
