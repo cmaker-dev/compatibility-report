@@ -195,16 +195,7 @@ int main(){
     }else{
       for(auto& result : results){
         reportItem item = result.get();
-        json reportJson = json::object();
-        reportJson["name"] = item.name;
-        reportJson["version"] = item.version;
-        reportJson["error"] = item.error;
-        reportJson["failed_on_add"] = item.failed_on_add;
-        reportJson["failed_on_run"] = item.failed_on_run;
-        reportJson["full_cmd"] = item.full_cmd;
-        reportJson["full_error"] = item.full_error;
-        reportJson["status_code"] = item.status_code;
-        report.push_back(reportJson);
+        addEntry(report,item);
         std::cout << "Package: " << item.name << " failed with error: " << item.error << std::endl;
         std::cout << report.size() << " packages failed " << (static_cast<float>(report.size()) / static_cast<float>(index)) * 100.0f << "% out of "<< index << "Packages checked" << std::endl;
       }
