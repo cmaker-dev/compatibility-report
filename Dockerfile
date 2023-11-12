@@ -1,16 +1,17 @@
 FROM archlinux:latest
 
+#Where the report goes when it's done
 RUN mkdir /report
 
-#Where the report goes when it's done
 VOLUME /report
+
+COPY . /compatibility-report
 
 # Install cmake
 RUN pacman -Syu --noconfirm && pacman -S cmake wget --noconfirm
 RUN pacman -S base-devel --noconfirm
 RUN pacman -S git --noconfirm
 
-RUN git clone --recurse-submodules https://github.com/cmaker-dev/compatibility-report
 
 
 # Install cmaker
@@ -26,4 +27,4 @@ RUN wget https://github.com/cmaker-dev/index/releases/latest/download/index.json
 
 
 # build and run compat report
-ENTRYPOINT cmaker run
+ENTRYPOINT cmaker clean -c && cmaker run

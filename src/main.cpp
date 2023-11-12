@@ -42,7 +42,7 @@ typedef struct cmdReturn {
 cmdReturn exec(std::string cmd, int thread_id){
   std::string out;
   std::string thread_id_str = std::to_string(thread_id);
-  int status = std::system((cmd + " &> /tmp/out"+thread_id_str+".txt").c_str());
+  int status = std::system((cmd + " > /tmp/out"+thread_id_str+".txt").c_str());
   std::ifstream out_file;
   try{
     out_file = std::ifstream("/tmp/out.txt");
@@ -68,10 +68,12 @@ void addEntry(nlohmann::json &report, reportItem item){
   entry["full_error"] = item.full_error;
   entry["full_cmd"] = item.full_cmd;
   entry["status_code"] = item.status_code;
-  std::system(("touch /report/" + item.name + "-error.json").c_str());
+  std::string file_name = "/report/" + item.name + "-error.json";
+  std::system(("touch "+file_name).c_str());
+  std::cout << "Touching your file: " << file_name << std::endl;
   std::ofstream out;
   try{
-    out.open(("/report/" + item.name + "-error.json"));
+    out.open(file_name);
     out << std::setw(4) << entry.dump(4) << std::endl;
   }catch(std::exception& e){
     std::cout << e.what() << std::endl;
